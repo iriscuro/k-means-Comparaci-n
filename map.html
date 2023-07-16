@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Quadtree Map Visualization</title><link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximumscale=1.0, user-scalable=no" />
+ <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+</head> 
+<body>
+<script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+<div id ="map" style="width: 900px; height:500px; "> </div> 
+<script>
+//Cargando nuestro mapa
+var map = L.map('map', {
+center: [40.96618, -40.9641],
+zoom: 15,
+});//[38.6202, -0.5731] es la latitud y longitud de la zona que queremos
+L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+maxZoom: 18,
+attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+L.control.scale().addTo(map);
+//MARCADOR
+var marker = L.marker([-6.8699697, -75.0458515]).addTo(map);
+marker.bindPopup("<b>Hello!</b><br>I'm here.").openPopup();
+//RECTANGULOS
+
+var rectangle = L.polygon([
+[80, -170.083],
+[80, -169.985],
+[79.9658, -169.985],
+[79.9658, -170.083]],{
+color: 'rgb(255,255,0)',
+fillColor: 'rgb(255,255,0)',
+fillOpacity: 0.8
+}
+).addTo(map);
+rectangle.bindPopup();var rectangle = L.polygon([
+[80, -150.161],
+[80, -150.063],
+[79.9658, -150.063],
+[79.9658, -150.161]],{
+color: 'rgb(255,254,0)',
+fillColor: 'rgb(255,254,0)',
+fillOpacity: 0.8
+}
+).addTo(map);
+rectangle.bindPopup();var rectangle = L.polygon([
+[80, -114.453],
+[80, -114.355],
+[79.9658, -114.355],
+[79.9658, -114.453]],{
+color: 'rgb(255,255,0)',
+fillColor: 'rgb(255,255,0)',
+fillOpacity: 0.8
+}
+).addTo(map);
+rectangle.bindPopup();var rectangle = L.polygon([
+[80, -104.067],
+[80, -103.97],
+[79.9658, -103.97],
+[79.9658, -104.067]],{
+color: 'rgb(255,255,0)',
+fillColor: 'rgb(255,255,0)',
+fillOpacity: 0.8
+}
+).addTo(map);
+rectangle.bindPopup();var rectangle = L.polygon([
+[80, -100.161],
+[80, -100.063],
+[79.9658, -100.063],
+[79.9658, -100.161]],{
+color: 'rgb(255,0,0)',
+fillColor: 'rgb(255,0,0)',
+fillOpacity: 0.8
+}
+).addTo(map);
+rectangle.bindPopup();var rectangle = L.polygon([
+[80, -25.1611],
+[80, -25.0635],
+[79.9658, -25.0635],
+[79.9658, -25.1611]],{
+color: 'rgb(255,255,0)',
+fillColor: 'rgb(255,255,0)',
+fillOpacity: 0.8
+}
+).addTo(map);
+rectangle.bindPopup();var rectangle = L.polygon([
+[80, -0.161133],
+[80, -0.0634766],
+[79.9658, -0.0634766],
+[79.9658, -0.161133]],{
+color: 'rgb(255,0,0)',
+fillColor: 'rgb(255,0,0)',
+fillOpacity: 0.8
+}
+).addTo(map);
+rectangle.bindPopup();var rectangle = L.polygon([
+[80, 49.8389],
+[80, 49.9365],
+[79.9658, 49.9365],
+[79.9658, 49.8389]],{
+color: 'rgb(255,0,0)',
+fillColor: 'rgb(255,0,0)',
+fillOpacity: 0.8
+}
+).addTo(map);
+rectangle.bindPopup();var rectangle = L.polygon([
+[80, 99.8389],
+[80, 99.9365],
+[79.9658, 99.9365],
+[79.9658, 99.8389]],{
+color: 'rgb(255,0,0)',
+fillColor: 'rgb(255,0,0)',
+fillOpacity: 0.8
+}
+).addTo(map);
+rectangle.bindPopup();var rectangle = L.polygon([
+[80, 199.839],
+[80, 199.937],
+[79.9658, 199.937],
+[79.9658, 199.839]],{
+color: 'rgb(255,0,0)',
+fillColor: 'rgb(255,0,0)',
+fillOpacity: 0.8
+}
+).addTo(map);
+rectangle.bindPopup();
+</script>
+</body>
+</html>
