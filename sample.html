@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Puntos Coloreados con Zoom</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximumscale=1.0, user-scalable=no" />
+<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+</head> 
+<body>
+<div id="map" style="width: 900px; height: 500px;"></div> 
+<script>
+// Datos de ejemplo de coordenadas y colores de los puntos
+var puntos = [
+    { coordenadas: [-6.8699697, -75.0458515], color: 'red' },
+    { coordenadas: [40.96618, -40.9641], color: 'blue' },
+    { coordenadas: [38.6202, -0.5731], color: 'green' },
+    // Agrega más puntos con sus colores aquí
+];
+
+// Crea un objeto de mapa con zoom y centrado en los puntos
+var map = L.map('map').setView([0, 0], 1);
+
+// Crea un grupo de capas para los puntos
+var pointGroup = L.featureGroup().addTo(map);
+
+// Agrega los puntos al grupo de capas con los colores especificados
+for (var i = 0; i < puntos.length; i++) {
+    var punto = puntos[i];
+    var marker = L.circleMarker(punto.coordenadas, {
+        color: punto.color,
+        fillColor: punto.color,
+        fillOpacity: 1
+    }).addTo(pointGroup);
+}
+
+// Ajusta el mapa según los puntos y habilita el control de zoom
+map.fitBounds(pointGroup.getBounds());
+L.control.zoom().addTo(map);
+
+</script>
+</body>
+</html>
